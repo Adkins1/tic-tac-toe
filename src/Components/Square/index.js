@@ -1,22 +1,31 @@
 import React, { useState } from "react";
 import { SquareItem } from "../Square/SquareStyles";
 
-export const Square = ({ player, setPlayer }) => {
-  const [disabled, setDisabled] = useState(false);
-  const [item, setItem] = useState("");
-
+export const Square = ({
+  setSquareValueTable,
+  SquareValueTable,
+  player,
+  setPlayer,
+  itemId,
+}) => {
   const toggleItem = () => {
-    if (!disabled) {
+    if (SquareValueTable[itemId] !== "X" && SquareValueTable[itemId] !== "O") {
       if (player === "X") {
-        setItem("X");
+        SquareValueTable[itemId] = "X";
+        setSquareValueTable(SquareValueTable);
         setPlayer("O");
       } else {
-        setItem("O");
+        SquareValueTable[itemId] = "O";
+        setSquareValueTable(SquareValueTable);
         setPlayer("X");
       }
-      setDisabled(true);
+      console.log(SquareValueTable);
     }
   };
 
-  return <SquareItem onClick={toggleItem}>{item}</SquareItem>;
+  return (
+    <>
+      <SquareItem onClick={toggleItem}>{SquareValueTable[itemId]}</SquareItem>
+    </>
+  );
 };
