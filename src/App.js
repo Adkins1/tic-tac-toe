@@ -1,13 +1,13 @@
-import { useState } from "react";
+import React from "react";
 import "./App.css";
+import { Board } from "./Components/Board";
+import { AppContainer } from "./AppStyles";
 
 function App() {
-  const [stan, setStan] = useState("xd");
-
   return (
-    <>
-      <h1>{stan}</h1>
-    </>
+    <AppContainer>
+      <Board />
+    </AppContainer>
   );
 }
 
