@@ -4,7 +4,6 @@ import { Square } from "../Square";
 
 export const Board = () => {
   const [player, setPlayer] = useState("X");
-  const [boardSizeBoard, setBoardSize] = useState(9);
   const [SquareValue, setSquareValue] = useState([]);
 
   const winScenarios = [
@@ -20,6 +19,7 @@ export const Board = () => {
 
   const populateTable = () => {
     var nums = [];
+    const boardSizeBoard = 9;
     for (let i = 0; i < boardSizeBoard; i++) {
       nums.push("");
     }
@@ -28,14 +28,16 @@ export const Board = () => {
 
   useEffect(() => {
     populateTable();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     checkWinConditions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [player]);
 
   const checkWinConditions = () => {
-    winScenarios.map((winCondition) => {
+    winScenarios.forEach((winCondition) => {
       if (
         SquareValue[winCondition[0]] === "O" &&
         SquareValue[winCondition[1]] === "O" &&

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { SquareItem } from "../Square/SquareStyles";
 
 export const Square = ({

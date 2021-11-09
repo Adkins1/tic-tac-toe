@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
   width: 500px;
   background: lightgrey;
 `;
